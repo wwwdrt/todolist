@@ -53,7 +53,13 @@ class Data {
         element.classList.add('in-progress');
       }
 
-      element.textContent = task.description;
+      element.innerHTML = `
+                    <label class="task">
+                    <button type="submit" class="toggle" title="check" alt="check" tabindex="0"></button>
+                    <input type="text" placeholder=${task.description}>
+                    </label>
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      `;
 
       todolist.appendChild(element);
     });
