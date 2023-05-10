@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #8a8a8a;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem auto 2rem auto;
+  width: 80%;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+#title h1 {
+  color: #71747d;
+  font-size: 1rem;
+}
+
+#form input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-top: 1px solid hsl(0, 0%, 93.73%);
+  border-bottom: 1px solid hsl(0, 0%, 93.73%);
+  font-style: italic;
+}
+
+#form input[type="text"]:focus {
+  outline: none;
+}
+
+#todolist {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#todolist li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid hsl(0, 0%, 93.73%);
+  border-bottom: 1px solid hsl(0, 0%, 93.73%);
+}
+
+.task {
+  display: flex;
+  gap: 1rem;
+}
+
+.task input[type=text] {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* stylelint-disable-next-line */
+ion-icon[name="ellipsis-vertical-outline"] {
+  cursor: pointer;
+}
+
+/* stylelint-disable-next-line */
+ion-icon[name="repeat-outline"] {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#clear {
+  padding: 1rem;
+  color: #8a8a8a;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.toggle {
+  padding: 8px;
+  border: 1.5px solid #c1c1c3;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
