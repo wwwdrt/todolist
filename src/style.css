@@ -80,10 +80,12 @@ body {
   width: 100%;
 }
 
+/* stylelint-disable-next-line */
 ion-icon[name="ellipsis-vertical-outline"] {
   cursor: pointer;
 }
 
+/* stylelint-disable-next-line */
 ion-icon[name="repeat-outline"] {
   cursor: pointer;
   font-size: 1.2rem;
