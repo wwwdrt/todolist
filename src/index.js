@@ -1,4 +1,9 @@
-import Data from './components/Data.js';
+/* eslint-disable */
 
-// eslint-disable-next-line no-new
+import Data from './components/Data.js';
+import Create from './components/Create.js';
+import Read from './components/Read.js';
+import Update from './components/Update.js';
+import Destroy from './components/Destroy.js';
+
 new Data();
