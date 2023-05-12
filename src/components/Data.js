@@ -33,6 +33,10 @@ class Data {
       button.classList.add('toggle');
       button.tabIndex = 0;
 
+      button.addEventListener('click', () => {
+        this.updateTaskStatus(index);
+      });
+
       const icon = document.createElement('ion-icon');
       icon.name = 'ellipsis-vertical-outline';
 
@@ -100,6 +104,15 @@ class Data {
     this.tasks.forEach((task, index) => {
       task.index = index + 1 - 1;
     });
+  };
+
+  updateTaskStatus = (index) => {
+    const task = this.getTask(index);
+    if (task) {
+      task.completed = !task.completed;
+      this.saveTasks();
+      this.renderData();
+    }
   };
 
   getTask = (index) => {
