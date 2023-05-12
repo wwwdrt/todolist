@@ -37,6 +37,9 @@ class Data {
         this.updateTaskStatus(index);
       });
 
+      const success = document.createElement('ion-icon');
+      success.name = task.completed ? 'checkmark-outline' : '';
+
       const icon = document.createElement('ion-icon');
       icon.name = 'ellipsis-vertical-outline';
 
@@ -65,6 +68,7 @@ class Data {
 
       element.appendChild(label);
       label.appendChild(button);
+      button.appendChild(success);
       label.appendChild(input);
       element.appendChild(icon);
 
