@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 #root {
@@ -71,6 +71,7 @@ body {
 .task {
   display: flex;
   gap: 1rem;
+  width: 100%;
 }
 
 .task input[type=text] {
@@ -91,6 +92,11 @@ ion-icon[name="repeat-outline"] {
   font-size: 1.2rem;
 }
 
+/* stylelint-disable-next-line */
+ion-icon[name="trash-outline"] {
+  cursor: pointer;
+}
+
 #clear {
   padding: 1rem;
   color: #8a8a8a;
@@ -99,10 +105,19 @@ ion-icon[name="repeat-outline"] {
   cursor: pointer;
 }
 
+#clear:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 .toggle {
   padding: 8px;
   border: 1.5px solid #c1c1c3;
   border-radius: 4px;
   background: white;
+  cursor: pointer;
+}
+
+#input {
   cursor: pointer;
 }
