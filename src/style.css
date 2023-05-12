@@ -111,11 +111,11 @@ ion-icon[name="trash-outline"] {
 }
 
 .toggle {
-  padding: 8px;
   border: 1.5px solid #c1c1c3;
   border-radius: 4px;
   background: white;
   cursor: pointer;
+  width: 1.3rem;
 }
 
 #input {
