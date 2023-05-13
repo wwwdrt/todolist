@@ -28,17 +28,11 @@ class Data {
       const label = document.createElement('label');
       label.classList.add('task');
 
-      const button = document.createElement('button');
-      button.type = 'submit';
-      button.classList.add('toggle');
-      button.tabIndex = 0;
-
-      button.addEventListener('click', () => {
-        this.updateTaskStatus(index);
-      });
-
-      const success = document.createElement('ion-icon');
-      success.name = task.completed ? 'checkmark-outline' : '';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.classList.add('toggle');
+      checkbox.tabIndex = 0;
+      checkbox.addEventListener('change', () => this.updateTaskStatus(index));
 
       const icon = document.createElement('ion-icon');
       icon.name = 'ellipsis-vertical-outline';
@@ -67,8 +61,7 @@ class Data {
       icon.addEventListener('mousedown', trashIconClickHandler);
 
       element.appendChild(label);
-      label.appendChild(button);
-      button.appendChild(success);
+      label.appendChild(checkbox);
       label.appendChild(input);
       element.appendChild(icon);
 
