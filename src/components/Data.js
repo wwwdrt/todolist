@@ -12,7 +12,7 @@ class Data {
     this.tasks.forEach((task, index) => {
       const element = document.createElement('li');
 
-      if (task.completed === true) {
+      if (task && task.completed === true) {
         element.classList.add('completed');
       } else {
         element.classList.add('in-progress');
@@ -20,7 +20,7 @@ class Data {
 
       const input = document.createElement('input');
       input.type = 'text';
-      input.value = task.description;
+      input.value = task && task.description ? task.description : '';
       input.addEventListener('input', (e) => {
         this.updateTasks(index, e.target.value);
       });
@@ -29,7 +29,7 @@ class Data {
       checkbox.type = 'checkbox';
       checkbox.classList.add('toggle');
       checkbox.tabIndex = 0;
-      checkbox.checked = task.completed;
+      checkbox.checked = task && task.completed ? task.completed : false;
       checkbox.addEventListener('change', () => this.updateTaskStatus(index));
 
       const label = document.createElement('label');
@@ -128,7 +128,9 @@ class Data {
     const data = localStorage.getItem('tasks');
     if (data) {
       this.tasks = JSON.parse(data);
-      this.renderData();
+      if (this.tasks.length > 0) {
+        this.renderData();
+      }
     }
   };
 }
