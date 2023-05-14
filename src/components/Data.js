@@ -12,7 +12,7 @@ class Data {
     this.tasks.forEach((task, index) => {
       const element = document.createElement('li');
 
-      if (task.completed === true) {
+      if (task && task.completed === true) {
         element.classList.add('completed');
       } else {
         element.classList.add('in-progress');
@@ -20,18 +20,20 @@ class Data {
 
       const input = document.createElement('input');
       input.type = 'text';
-      input.value = task.description;
+      input.value = task && task.description ? task.description : '';
       input.addEventListener('input', (e) => {
         this.updateTasks(index, e.target.value);
       });
 
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.classList.add('toggle');
+      checkbox.tabIndex = 0;
+      checkbox.checked = task && task.completed ? task.completed : false;
+      checkbox.addEventListener('change', () => this.updateTaskStatus(index));
+
       const label = document.createElement('label');
       label.classList.add('task');
-
-      const button = document.createElement('button');
-      button.type = 'submit';
-      button.classList.add('toggle');
-      button.tabIndex = 0;
 
       const icon = document.createElement('ion-icon');
       icon.name = 'ellipsis-vertical-outline';
@@ -60,9 +62,9 @@ class Data {
       icon.addEventListener('mousedown', trashIconClickHandler);
 
       element.appendChild(label);
-      label.appendChild(button);
+      label.appendChild(checkbox);
       label.appendChild(input);
-      element.appendChild(icon);
+      label.appendChild(icon);
 
       todolist.appendChild(element);
 
@@ -102,6 +104,15 @@ class Data {
     });
   };
 
+  updateTaskStatus = (index) => {
+    const task = this.getTask(index);
+    if (task) {
+      task.completed = !task.completed;
+      this.saveTasks();
+      this.renderData();
+    }
+  };
+
   getTask = (index) => {
     if (index >= 0 && index < this.tasks.length) {
       return this.tasks[index];
@@ -117,7 +128,9 @@ class Data {
     const data = localStorage.getItem('tasks');
     if (data) {
       this.tasks = JSON.parse(data);
-      this.renderData();
+      if (this.tasks.length > 0) {
+        this.renderData();
+      }
     }
   };
 }
