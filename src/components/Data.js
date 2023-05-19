@@ -34,6 +34,7 @@ class Data {
 
       const label = document.createElement('label');
       label.classList.add('task');
+      label.textContent = task.description;
 
       const icon = document.createElement('ion-icon');
       icon.name = 'ellipsis-vertical-outline';
